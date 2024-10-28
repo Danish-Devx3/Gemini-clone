@@ -7,6 +7,11 @@ function Main() {
 
     const {onSend,recentprompt,showResult,loading,resultData,input,setInput} = useContext(Context)
 
+    const  handleSubmit=(e) =>{
+        e.preventDefault();
+        onSend()
+    }
+
   return (
     <div className='main'>
         <div className="nav">
@@ -63,7 +68,7 @@ function Main() {
             
             <div className="main-bottom">
                 <div className="search-box">
-                    <input onChange={(e) => setInput(e.target.value)} value={input} type="text" placeholder='Enter a promt here'/>
+                    <form onSubmit={handleSubmit}><input onChange={(e) => setInput(e.target.value)} value={input} type="text" placeholder='Enter a promt here'/></form>
                     <div>
                         <img src={assets.gallery_icon} alt="" />
                         <img src={assets.mic_icon} alt="" />
